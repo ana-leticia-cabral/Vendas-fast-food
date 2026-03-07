@@ -24,7 +24,7 @@ Este conjunto de dados consiste em um arquivo CSV, com tamanho de 495,73 kB, que
 
 O dataset, em seu formato original, apresenta as datas no padrão yyyy-mm-dd. No entanto, alterei esse formato para o padrão brasileiro apenas para fins de estudo, a fim de facilitar a compreensão e a análise.
 
-Também com fins educativos, incluí uma coluna com preços em dólar americano, já que o dataset original está em inglês, e outra com esses valores convertidos para reais. Para isso, utilizei a função do Google Sheets =E2*GOOGLEFINANCE("CURRENCY:USDBRL").
+Também com fins educativos, incluí uma coluna com preços em dólar americano, já que o dataset original está em inglês, e outra com esses valores convertidos para reais. Para isso, utilizei a função do Google Sheets `=E2*GOOGLEFINANCE("CURRENCY:USDBRL")`.
 
 O objetivo de adicionar valores fictícios de preços foi suprir a ausência dessas informações no dataset original. Dessa forma, tornou-se possível apresentar insights iniciais relacionados à receita do Chaska Cafe, o que enriquece a análise proposta neste projeto.
 
@@ -67,33 +67,54 @@ Na quarta aba, segui a mesma lógica, porém aplicada à receita por produto, ta
 
 As duas últimas abas correspondem às tabelas dinâmicas, utilizadas para validar os resultados obtidos nas abas anteriores.
 
-Por fim, desenvolvi uma visualização no Power BI, criando um painel com estética inspirada em uma cafeteria, com o objetivo de responder às perguntas de negócio estabelecidas no projeto e apresentar essas respostas de forma clara e visualmente agradável.
+Por fim, desenvolvi uma visualização no Power BI, criando um painel com estética inspirada em uma cafeteria, com o objetivo de responder às perguntas de negócio estabelecidas no projeto e apresentar essas respostas de forma clara e visualmente agradável:
 
-## 📈 Principais insights e resultados
-
-1. **Qual é o produto mais vendido?**
-
-O produto mais vendido foi o **Veg Alfredo Pasta**, totalizando **10.452 vendas**. Para obter esse resultado, utilizei em uma nova aba da planilha (chamada Vendas por Produto) a função
-
-`=SOMASE('Dados limpos'!D:D; A2; 'Dados limpos'!G:G)`,
-
-que permitiu calcular o total de vendas por produto. Os valores foram posteriormente validados por meio de uma tabela dinâmica.
-
-<img width="296" height="803" alt="image" src="https://github.com/user-attachments/assets/0587cd87-50e4-42bf-8f00-fcf54ce35cc6" />
+<img width="1266" height="705" alt="image" src="https://github.com/user-attachments/assets/27382ac3-bc79-487b-9589-8bd2a8a75806" />
 
 
-2. **Existe um horário de pico de pedidos?**
+## 📈 Principais Insights e Resultados
 
-Não foi possível identificar um horário de pico de pedidos, pois o conjunto de dados não contém informações relacionadas ao horário das vendas.
+### 1. Qual é o produto mais vendido?
 
-3. **Qual produto gera mais receita?**
+O produto mais vendido foi o **Veg Alfredo Pasta**, com um total de **10.452 unidades vendidas**. Para obter esse resultado, foi criada uma aba auxiliar na planilha denominada *Vendas por Produto*, na qual a seguinte fórmula foi aplicada:
 
-O produto que gerou mais receita é o Paneer Pizza, totalizando um valor de R$ 31.302,55. Para essa análise, utilizei em uma nova aba (chamada Receita por Produto) a função `=SOMASE('Dados limpos'!D:D;A:A;'Dados limpos'!F:F)`
+```excel
+=SOMASE('Dados limpos'!D:D; A2; 'Dados limpos'!G:G)
+```
 
-e confirmei os resultados por meio de uma tabela dinâmica.
+Essa função permitiu consolidar o total de vendas agrupado por produto. Os resultados foram posteriormente validados por meio de uma tabela dinâmica, garantindo a consistência dos dados.
 
-<img width="296" height="803" alt="image" src="https://github.com/user-attachments/assets/f7e3cb59-3a43-461f-98c7-a753c9710df6" />
+<img width="296" height="803" alt="Tabela de vendas por produto" src="https://github.com/user-attachments/assets/0587cd87-50e4-42bf-8f00-fcf54ce35cc6" />
 
+---
+
+### 2. Existe um horário de pico de pedidos?
+
+Não foi possível identificar um horário de pico de pedidos. O conjunto de dados analisado **não contém informações sobre o horário das vendas**, o que inviabilizou essa análise. Caso essa variável estivesse disponível, seria possível identificar padrões temporais relevantes para a tomada de decisão.
+
+---
+
+### 3. Qual produto gera mais receita?
+
+O produto com maior geração de receita foi o **Paneer Pizza**, totalizando **R$ 31.302,55**. Para essa análise, foi criada uma aba auxiliar denominada *Receita por Produto*, com a aplicação da seguinte fórmula:
+
+```excel
+=SOMASE('Dados limpos'!D:D; A:A; 'Dados limpos'!F:F)
+```
+
+Os resultados foram confirmados por meio de uma tabela dinâmica, assegurando a precisão dos valores calculados.
+
+<img width="296" height="803" alt="Tabela de receita por produto" src="https://github.com/user-attachments/assets/f7e3cb59-3a43-461f-98c7-a753c9710df6" />
+
+## 🚀 Como executar o projeto
+
+Os arquivos deste projeto estão disponibilizados na pasta entregaveis/ deste repositório, contendo:
+
+📊 Planilha Excel com os dados brutos, dados tratados e os insights que respondem às perguntas de negócio
+🔗 Link para o dashboard interativo desenvolvido no Power BI
+
+Para visualizar a planilha, basta realizar o download do arquivo .xlsx e abri-lo no Microsoft Excel ou Google Sheets. O dashboard do Power BI pode ser acessado diretamente pelo link disponível na planilha, sem necessidade de instalação.
+Em caso de dúvidas ou sugestões, sinta-se à vontade para entrar em contato por meio da seção Issues deste repositório ou pelos canais disponíveis no meu perfil do GitHub.
 
 ## 🤝 Contato
 
